@@ -1,0 +1,12 @@
+{
+    "jsonrpc": "2.0",
+    "id": "test1",
+    "method": "tools/call",
+    "params": {
+        "name": "list_files",
+        "arguments": {
+            "repo_name": "Dshuishui/result_nezha",
+            "path": ""
+        }
+    }
+}
