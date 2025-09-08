@@ -230,7 +230,7 @@ class MCPServer:
                 print(f"处理请求时出错: {e}", file=sys.stderr)
 
 # 创建GitHub文件管理服务器实例
-server = MCPServer("github-file-manager")
+server = MCPServer("multi-tool-mcp-server")
 
 # 从环境变量获取GitHub token
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -349,6 +349,34 @@ def update_file_content(repo_name: str, filename: str, search_key: str, new_valu
     
     return "更新功能开发中..."
 
+# 导入Excel处理工具
+def load_excel_tools():
+    """加载Excel处理工具模块"""
+    try:
+        # 导入Excel处理工具模块
+        from tools.excel_processor import register_excel_tools
+        register_excel_tools(server)
+        print("✅ Excel工具模块加载成功", file=sys.stderr)
+    except ImportError as e:
+        print(f"⚠️  Excel工具模块导入失败: {e}", file=sys.stderr)
+        print("请确保tools/excel_processor.py文件存在", file=sys.stderr)
+    except Exception as e:
+        print(f"❌ 加载Excel工具时出错: {e}", file=sys.stderr)
+
+# 加载所有工具模块
+def load_all_tools():
+    """加载所有工具模块"""
+    print("🔧 开始加载工具模块...", file=sys.stderr)
+    load_excel_tools()
+    # 后续可以添加其他工具模块
+    # load_git_tools()
+    # load_file_manager_tools()
+    # load_server_manager_tools()
+    print("🎉 工具模块加载完成", file=sys.stderr)
+
 # 如果直接运行此文件，启动MCP服务器
 if __name__ == "__main__":
+    # 加载所有工具
+    load_all_tools()
+
     asyncio.run(server.run())

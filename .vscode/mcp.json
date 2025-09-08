@@ -1,0 +1,12 @@
+{
+	"servers": {
+		"my-mcp-server-excel": {
+			"type": "stdio",
+			"command": "/usr/bin/python3",
+			"args": [
+				"/Users/cong/Documents/MCP/mcpGithub/github_mcp_server.py"
+			]
+		}
+	},
+	"inputs": []
+}

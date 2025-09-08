@@ -1,12 +1,12 @@
 {
     "jsonrpc": "2.0",
-    "id": "test1",
-    "method": "tools/call",
-    "params": {
-        "name": "list_files",
-        "arguments": {
-            "repo_name": "Dshuishui/result_nezha",
-            "path": ""
-        }
+    "id": "test_call_smart_column_mapping",
+    "result": {
+        "content": [
+            {
+                "type": "text",
+                "text": "📊 智能列映射分析\n\n🗂️ 源文件分析:\n文件: tests/test_data/source_onedrive.xlsx\n列数: 3\n表头: ['Package Name', 'Component Location', 'DLT Category']\n\n🗂️ 目标文件分析:\n文件: tests/test_data/target_local.xlsx  \n列数: 3\n表头: ['File Path', 'DLT Status', 'Component Name']\n\n🔗 映射建议:\n  源列1[Package Name] → 目标列3[Component Name] (置信度: 高, 原因: 组件名称关键词匹配)\n  源列2[Component Location] → 目标列1[File Path] (置信度: 高, 原因: 路径相关关键词匹配)\n  源列3[DLT Category] → 目标列2[DLT Status] (置信度: 高, 原因: DLT状态关键词匹配)\n\n📝 源文件数据样本:\n  列1[Package Name]: ['React Router', 'Lodash Utility', 'Bootstrap CSS']\n  列2[Component Location]: ['/src/components/router/index.js', '/src/utils/lodash-helper.py', '/src/styles/bootstrap.css']\n  列3[DLT Category]: ['Open Source', 'Under Review', 'Approved']\n\n📝 目标文件数据样本:\n  列1[File Path]: ['/src/components/router/index.js', '/src/utils/lodash-helper.py', '/src/styles/bootstrap.css']\n  列2[DLT Status]: ['Approved', 'Needs Review', 'Approved']\n  列3[Component Name]: ['React Router', 'Lodash Utility', 'Bootstrap CSS']\n"
+            }
+        ]
     }
 }
